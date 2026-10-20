@@ -1,0 +1,36 @@
+[
+  {
+    "loai_chung_tu": "ban_hang_trong_nuoc",
+    "hinh_thuc_thanh_toan": "chua_thu_tien",
+    "so_chung_tu": "16",
+    "ngay_hach_toan": "2024-08-07",
+    "ngay_chung_tu": "2024-08-07",
+    "khach_hang": {
+      "ma_khach_hang": "0313944405",
+      "ten": "CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ VÀ XÂY LẮP THỊNH TIẾN",
+      "mst": "0313944405",
+      "dia_chi": "Số 59, Đường 69, Khu phố 2, Phường Tân Quy, Quận 7, TP Hồ Chí Minh, Việt Nam"
+    },
+    "hang_hoa": [
+      {
+        "ma_hang": "BR",
+        "ten_hang": "Thuốc xe máy đào",
+        "so_luong": 1,
+        "don_gia": 15400000,
+        "thanh_tien": 15400000,
+        "thue_suat": 8,
+        "tien_thue_gtgt": 1232000
+      }
+    ],
+    "tong_hop": {
+      "tong_tien_hang": 15400000,
+      "tong_tien_thue_gtgt": 1232000,
+      "tien_chiet_khau": 0,
+      "tong_tien_thanh_toan": 16632000
+    },
+    "ocr_meta": {
+      "overall_confidence": 0.95,
+      "source_file": "chungtu_banhang_16.pdf"
+    }
+  }
+]

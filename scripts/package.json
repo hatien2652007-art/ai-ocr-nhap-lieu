@@ -1,0 +1,10 @@
+{
+  "name": "ocr-nhap-lieu-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Script hỗ trợ: tạo mẫu Excel import MISA, chuyển JSON OCR sang Excel",
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

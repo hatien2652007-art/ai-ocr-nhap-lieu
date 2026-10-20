@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Nền & chữ */
+  --color-ink: #0f172a;
+  --color-page: #f8fafc;
+  --color-surface: #ffffff;
+  --color-line: #dbeafe;
+
+  /* Hành động & liên kết */
+  --color-action: #1e40af;
+  --color-action-hover: #1e3a8a;
+
+  /* Trạng thái */
+  --color-warn: #b45309;
+  --color-warn-bg: #fef3e2;
+  --color-warn-border: #d97706;
+  --color-good: #15803d;
+  --color-good-bg: #eefbf1;
+  --color-good-border: #bfe6cb;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}

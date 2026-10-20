@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HoaDonBanHang",
+  "description": "Schema JSON cho dữ liệu trích xuất từ hóa đơn bán hàng, map theo màn hình Chứng từ bán hàng của MISA SME",
+  "type": "object",
+  "required": ["so_chung_tu", "ngay_chung_tu", "khach_hang", "hang_hoa", "tong_hop"],
+  "properties": {
+    "loai_chung_tu": {
+      "type": "string",
+      "enum": ["ban_hang_trong_nuoc", "ban_hang_xuat_khau"],
+      "default": "ban_hang_trong_nuoc"
+    },
+    "hinh_thuc_thanh_toan": {
+      "type": "string",
+      "enum": ["chua_thu_tien", "thu_tien_ngay"]
+    },
+    "so_chung_tu": { "type": "string", "description": "Số chứng từ, ví dụ '16'" },
+    "ngay_hach_toan": { "type": "string", "format": "date" },
+    "ngay_chung_tu": { "type": "string", "format": "date" },
+    "han_thanh_toan": { "type": "string", "format": "date" },
+    "dien_giai": { "type": "string" },
+    "tham_chieu": { "type": "string" },
+
+    "khach_hang": {
+      "type": "object",
+      "required": ["ten", "mst"],
+      "properties": {
+        "ma_khach_hang": { "type": "string", "description": "Mã khách trong MISA nếu nhận diện được, thường trùng MST" },
+        "ten": { "type": "string" },
+        "mst": { "type": "string" },
+        "dia_chi": { "type": "string" },
+        "nguoi_giao_dich": { "type": "string" }
+      }
+    },
+
+    "hang_hoa": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ten_hang", "so_luong", "don_gia", "thue_suat"],
+        "properties": {
+          "ma_hang": { "type": "string" },
+          "ten_hang": { "type": "string" },
+          "ma_quy_cach": { "type": "string", "description": "Đơn vị tính quy cách nếu có" },
+          "dvt": { "type": "string", "description": "Đơn vị tính, ví dụ 'Cái', 'Bộ'" },
+          "so_luong": { "type": "number" },
+          "don_gia": { "type": "number" },
+          "thanh_tien": { "type": "number", "description": "so_luong * don_gia, OCR nên tự tính và đối chiếu với số đọc được" },
+          "thue_suat": { "type": "number", "description": "% thuế GTGT, ví dụ 8, 10, 0" },
+          "tien_thue_gtgt": { "type": "number" }
+        }
+      }
+    },
+
+    "tong_hop": {
+      "type": "object",
+      "required": ["tong_tien_hang", "tong_tien_thue_gtgt", "tong_tien_thanh_toan"],
+      "properties": {
+        "tong_tien_hang": { "type": "number" },
+        "tong_tien_thue_gtgt": { "type": "number" },
+        "tien_chiet_khau": { "type": "number", "default": 0 },
+        "tong_tien_thanh_toan": { "type": "number" }
+      }
+    },
+
+    "ocr_meta": {
+      "type": "object",
+      "description": "Thông tin về độ tin cậy của việc trích xuất, dùng để quyết định có cần người kiểm tra lại không",
+      "properties": {
+        "overall_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "field_confidence": {
+          "type": "object",
+          "description": "Confidence riêng cho từng field quan trọng, key trùng tên field ở trên",
+          "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "source_file": { "type": "string" }
+      }
+    }
+  }
+}
